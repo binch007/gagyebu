@@ -1213,11 +1213,11 @@ function getPaymentOptions(){
       if(matchAcct){p.kind='acct';p.ref=matchAcct.id;}
     });
   });
-  D.acct.forEach(function(a){
-    opts.push({id:'acct_'+a.id,name:a.name,sub:a.typeName||'계좌',ci:getAcctColorIdx(a.typeName),kind:'acct',ref:a.id});
-  });
   D.cards.forEach(function(c){
     opts.push({id:'card_'+c.id,name:c.name,sub:'카드',ci:c.colorIdx,kind:'card',ref:c.id});
+  });
+  D.acct.forEach(function(a){
+    opts.push({id:'acct_'+a.id,name:a.name,sub:a.typeName||'계좌',ci:getAcctColorIdx(a.typeName),kind:'acct',ref:a.id});
   });
   // paysOrder 순서 적용
   if(Array.isArray(D.paysOrder)&&D.paysOrder.length){
